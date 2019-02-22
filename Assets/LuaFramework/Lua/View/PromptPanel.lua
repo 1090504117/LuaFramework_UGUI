@@ -17,6 +17,7 @@ end
 function PromptPanel.InitPanel()
 	this.btnOpen = transform:Find("Open").gameObject;
 	this.gridParent = transform:Find('ScrollView/Grid');
+	this.testParent = transform:Find('BottomHint');
 end
 
 --单击事件--

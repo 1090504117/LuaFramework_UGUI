@@ -36,12 +36,13 @@ function PromptCtrl.OnCreate(obj)
 	logWarn("Start lua--->>"..gameObject.name);
 
 	prompt:AddClick(PromptPanel.btnOpen, this.OnClick);
-	resMgr:LoadPrefab('prompt', { 'PromptItem' }, this.InitPanel);
+    resMgr:LoadPrefab('prompt', { 'PromptItem' }, this.InitPanel);
+    resMgr:LoadPrefab('prompt', { 'TestImagePrefab' }, this.TestCreatePanel)
 end
 
 --初始化面板--
 function PromptCtrl.InitPanel(objs)
-	local count = 100; 
+	local count = 10; 
 	local parent = PromptPanel.gridParent;
 	for i = 1, count do
 		local go = newObject(objs[0]);
@@ -53,7 +54,16 @@ function PromptCtrl.InitPanel(objs)
 
 	    local label = go.transform:Find('Text');
 	    label:GetComponent('Text').text = tostring(i);
-	end
+    end
+end
+
+function PromptCtrl.TestCreatePanel(root)
+    local parent = PromptPanel.gridParent;
+    local go = newObject(root[0])
+    go.name = "myFirstPrefab"
+    go.transform:SetParent(parent);
+	go.transform.localScale = Vector3.one;
+	go.transform.localPosition = Vector3.zero;
 end
 
 --滚动项单击--
