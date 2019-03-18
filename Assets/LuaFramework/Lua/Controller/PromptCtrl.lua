@@ -37,7 +37,7 @@ function PromptCtrl.OnCreate(obj)
 
 	prompt:AddClick(PromptPanel.btnOpen, this.OnClick);
     resMgr:LoadPrefab('prompt', { 'PromptItem' }, this.InitPanel);
-    resMgr:LoadPrefab('prompt', { 'TestImagePrefab' }, this.TestCreatePanel)
+    --resMgr:LoadPrefab('prompt', { 'TestImagePrefab' }, this.TestCreatePanel)
 end
 
 --初始化面板--
